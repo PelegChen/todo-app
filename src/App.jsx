@@ -32,7 +32,7 @@ function App() {
   return (
     <>
      
-      <h1>My todo app</h1>
+      <h1 className='text-xl '>My todo app</h1>
       <h2> Unfinished</h2>
       <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
         {
