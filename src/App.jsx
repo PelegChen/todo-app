@@ -30,11 +30,10 @@ function App() {
  }
  
   return (
-    <>
-     
-      <h1 className='text-xl '>My todo app</h1>
-      <h2> Unfinished</h2>
-      <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+    <> 
+      <h1 className='text-4xl text-purple-950 font-bold mb-2'>My todo app</h1>
+    
+      <div  className='flex flex-col items-center gap-5'>
         {
          todos.map(todo=>  
            <TodoCard key={todo.id} todo={todo} markTodoAsDone={markTodoAsDone}/>
@@ -42,7 +41,7 @@ function App() {
         }
       </div>
       <div className="card">
-        <button onClick={() => {
+        <button className='bg-amber-950 text-white py-3 px-6 rounded' onClick={() => {
           addTodo()
         }}>
          Add a todo
