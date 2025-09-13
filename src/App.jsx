@@ -1,6 +1,7 @@
 import { useState } from 'react'
  
 import './App.css'
+import { TodoCard } from './components/TodoCard'
 
 function App() {
   const [todos, setTodos] = useState([{
@@ -17,7 +18,17 @@ function App() {
   }
   setTodos([...todos, newTodo]) 
  }
+ const markTodoAsDone = (todoId, value) => {
+  const newTodos = todos.map(todo=> {
+    if (todo.id === todoId){
+      todo.isDone = value
+    }
+    return todo
+  })
+  setTodos (newTodos)
 
+ }
+ 
   return (
     <>
      
@@ -26,10 +37,7 @@ function App() {
       <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
         {
          todos.map(todo=>  
-           <div className="todo-item" key={todo.id}>
-            <span> {todo.isDone ? '✅' : '🟩'} </span>
-            <span> {todo.text} </span>
-           </div>
+           <TodoCard key={todo.id} todo={todo} markTodoAsDone={markTodoAsDone}/>
           )
         }
       </div>
